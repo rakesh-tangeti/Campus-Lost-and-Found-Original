@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Campus Lost & Found</title>
+<link rel="stylesheet" href="style.css">
+<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<div class="shell">
+<header class="brand">
+  <div class="logo">⌕<b>▣</b></div>
+  <div><h1>CAMPUS <span>LOST &amp; FOUND</span></h1><p>Lost it? We'll help you <b>find it.</b></p></div>
+  <button class="security-link" onclick="securityLogin()">Security Login</button>
+</header>
+
+<main id="home">
+<section class="hero"><div><small>SMART CAMPUS SERVICE</small><h2>What would you like to do?</h2><p>Report an item you lost or found on campus.</p></div><em>● System Online</em></section>
+<section class="choices">
+<button class="choice lost" onclick="openReport('lost')"><strong>⌕</strong><h2>I LOST<br>AN ITEM</h2><p>Report something you have lost.</p><i>→</i></button>
+<button class="choice found" onclick="openReport('found')"><strong>□</strong><h2>I FOUND<br>AN ITEM</h2><p>Submit something you found.</p><i>→</i></button>
+</section>
+<section class="strip"><span>✓<b>SAFE &amp;<br>SECURE</b></span><span>⌁<b>PRIVATE &amp;<br>CONFIDENTIAL</b></span><span>♧<b>GET NOTIFIED<br>ON MATCH</b></span><span>♙<b>FOR STUDENTS,<br>BY STUDENTS</b></span></section>
+<section class="how"><h3>HOW IT WORKS</h3><div><span><b>01</b>REPORT</span><i></i><span><b>02</b>MATCH</span><i></i><span><b>03</b>NOTIFY</span><i></i><span><b>04</b>VERIFY &amp; RETURN</span></div></section>
+</main>
+
+<main id="security" class="hidden">
+<section class="dashboardHead"><div><small>SECURITY CONTROL PANEL</small><h2>Matching Reports &amp; Alerts</h2><p>Real-time reports from the campus kiosk and student phones.</p></div><button class="btn" onclick="logout()">Log out</button></section>
+<section class="stats"><div><b id="sLost">0</b>Lost Reports</div><div><b id="sFound">0</b>Found Reports</div><div><b id="sMatch">0</b>Possible Matches</div><div><b id="sPending">0</b>Pending Actions</div></section>
+<section class="dashgrid"><div class="panel"><header><b>🔔 Matching Alerts</b><button onclick="loadSecurity()">Refresh</button></header><div id="alerts"></div></div><div class="panel"><header><b>Recent Reports</b></header><div id="reports"></div></div></section>
+</main>
+<footer>Campus Lost &amp; Found <span>Better Together for a Better Campus ♥</span></footer>
+</div>
+
+<div class="modal hidden" id="modal"><div class="card"><button class="close" onclick="closeModal()">×</button><div id="modalBody"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="app.js"></script>
+</body>
+</html>
